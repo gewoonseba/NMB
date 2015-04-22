@@ -14,7 +14,7 @@ function [H, Q, E] = arnoldi(A, b, maxit)
 % Q     - orthogonale matrix
 z= 0;
 E = [];
-W = sortrows(abs(real(eigs(A,6,'lr'))));
+W = sortrows(abs(real(eigs(A))));
 Q(:,1) = b/norm(b);
 for n=1:maxit
   v = A*Q(:,n);
@@ -22,11 +22,7 @@ for n=1:maxit
     H(j,n) = Q(:,j)'*v;
     v = v - H(j,n)*Q(:,j);
   end
-  k=n;
-  if k>6
-      k=6;
-  end
-  L = abs(real(eigs(H,k,'lr')));
+  L = abs(real(eigs(H)));
   if real(L(1)) ~= 0
     L= sortrows(L);
     if size(W) == size(L)
