@@ -9,4 +9,3 @@ end
 b = transpose(Q)*[b;c];
 x = R \ b;
 end
-
