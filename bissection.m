@@ -42,8 +42,7 @@ d=0;
 uvalues=bvalues;
 lvalues=avalues;
 while n>0
-    while upper-lower>tol || uvalues-lvalues>1
-        z=0;
+    while upper-lower>tol 
         wvalues=0;
         d = (upper + lower)/2;
         P1=0;
@@ -70,7 +69,7 @@ while n>0
         end
     end
     E= [E d];
-    n = n-1;
+    n = n-(uvalues-lvalues);
     upper=lower;
     uvalues=lvalues;
     lower=a;

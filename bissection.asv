@@ -1,4 +1,5 @@
 function [E] = bissection(A,a,b,tol)
+A = hess(A);
 lower =a;
 upper= b;
 P1=0;
@@ -41,7 +42,7 @@ d=0;
 uvalues=bvalues;
 lvalues=avalues;
 while n>0
-    while abs(z)>tol || uvalues-lvalues~=1
+    while upper-lower>tol || uvalues-lvalues>1
         wvalues=0;
         d = (upper + lower)/2;
         P1=0;
@@ -70,11 +71,9 @@ while n>0
     z
     E= [E d];
     n = n-1;
-    
     upper=lower;
-    uvalues=lvalues
+    uvalues=lvalues;
     lower=a;
-    lvalues=avalues
-    z=tol+1;
+    lvalues=avalues;
 end
 
