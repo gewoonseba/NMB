@@ -10,7 +10,8 @@ for n=1:6
     sDiag = rand(1,dim-1);
     A = full(gallery('tridiag',dim,sDiag,diag,sDiag));
     tic;
-    qr_shiftRayleigh(A);
+    % rayleigh moet aangepast worden om 7 eigenwaarden en vectors te berekenen
+    qr_shiftrayleigh(A);
     rayleighTime = toc;
     rayleighTimes = [rayleighTimes; rayleighTime];
     tic;
