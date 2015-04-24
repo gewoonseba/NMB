@@ -1,4 +1,4 @@
-function [e,res,S]=qr_shiftrayleigh(A)
+function [e,res]=qr_shiftrayleigh(A)
 
 % function [e,res]=qr_shiftrayleigh(A)
 %
@@ -23,25 +23,16 @@ if n<2
   disp('A moet minstens dimensie 2 hebben')
   return
 end
-
-A = hess(A);
+e = [];
 res = [];
 
-while abs(A(n-6,n-7))>1.e-13
+while abs(A(n,n-1))>1.e-13
    res = [res abs(A(n,n-1))];
    [q,r]=qr(A-A(n,n)*eye(n));
    A = r*q + A(n,n)*eye(n);
+   e=[e A(n,n)];
 end
 res = [res abs(A(n,n-1))];
 disp(sprintf('residu = %.1e', abs(A(n,n-1))));
-e=[];
-v=rand(size(A),1);
-v=v/norm(v);
-v
-S=[];
-for i=0:6
-    e = [e A(n-i,n-i)];
-    w=(C-A(n-i,n-i)*eye(size(C)))\v;
-    w=w/norm(w);
-    S=[S w];
-end
+
+

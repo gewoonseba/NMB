@@ -75,4 +75,12 @@ while n>0
     lower=a;
     lvalues=avalues;
 end
+v=rand(size(A),1);
+v=v/norm(v);
+for i=0:6
+    w=(A-E(i)*eye(size(A)))\v;
+    w=w/norm(w);
+    S=[S w];
+end
+end
 
