@@ -30,18 +30,18 @@ res = [];
 while abs(A(n-6,n-7))>1.e-13
    res = [res abs(A(n,n-1))];
    [q,r]=qr(A-A(n,n)*eye(n));
-   A = r*q + A(n,n)*eye(n)
+   A = r*q + A(n,n)*eye(n);
 end
 res = [res abs(A(n,n-1))];
 disp(sprintf('residu = %.1e', abs(A(n,n-1))));
 e=[];
 v=rand(size(A),1);
 v=v/norm(v);
-v
+norm(v)
 S=[];
 for i=0:6
     e = [e A(n-i,n-i)];
-    w=(C-A(n-i,n-i)*eye(size(C)))\v;
+    w=v\(C-A(n-i,n-i)*eye(size(C)));
     w=w/norm(w);
     S=[S w];
 end
