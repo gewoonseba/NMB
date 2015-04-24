@@ -30,7 +30,7 @@ res = [];
 while abs(A(n,n-1))>1.e-13
    res = [res abs(A(n,n-1))];
    [q,r]=qr(A-A(n,n)*eye(n));
-   A = r*q + A(n,n)*eye(n);
+   A = r*q + A(n,n)*eye(n)
 end
 res = [res abs(A(n,n-1))];
 disp(sprintf('residu = %.1e', abs(A(n,n-1))));
