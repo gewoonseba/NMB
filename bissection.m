@@ -77,7 +77,8 @@ while n>0
 end
 v=rand(size(A),1);
 v=v/norm(v);
-for i=0:6
+S=[];
+for i=1:7
     w=(A-E(i)*eye(size(A)))\v;
     w=w/norm(w);
     S=[S w];
