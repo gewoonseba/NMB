@@ -1,0 +1,25 @@
+function opgave3()
+X=[5;10;20;40];
+t=[0;0.8;1.3;1.9;2.4;3;4.1;4.2;5.05;5.6;6;6.28];
+y=[];
+for i = 1:size(t,1)
+        y=[y;sin(t(i))+(cos(4*t(i))/2)];
+end
+maxss =[];
+for k=1:4
+    f =[];
+    x =[];
+    for i=0:2*pi/X(k):2*pi
+        x= [x;i];
+        f=[f;sin(i)+(cos(4*i)/2)];
+    end
+    
+    spl = periospline(x,f,t);
+    ydspl = y-spl;
+    maxss=[maxss;max(ydspl)];
+    figure(k)
+    plot(transpose(t),transpose(ydspl),'-h');
+end
+figure(5)
+plot(transpose(X),transpose(maxss),'-h');
+
