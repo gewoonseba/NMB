@@ -30,8 +30,20 @@ for k = 1:size(t,1)
     for i = 2:size(x,1)
         if t(k)<x(i)
             z=t(k);
+            delta1 = x(i)-x(i-1);
             y(k)=((z-x(i-1))^3/6*delta1)*s(i) - ((z-x(i))^3/6*delta1)*s(i-1) + c1(i-1)*(z-x(i-1))+c2(i-1)*(x(i)-z);
             break
         end
     end
 end
+
+figure
+axis([-2 2 -2 2])
+hold on
+for i = 2:size(x,1)
+        delta1 = x(i)-x(i-1);
+        q = linspace(x(i-1),x(i),25);
+        v=(((q-x(i-1)).^3)/6*delta1)*s(i) - (((q-x(i)).^3)/6*delta1)*s(i-1) + c1(i-1)*(q-x(i-1))+c2(i-1)*(x(i)-q);
+        plot(q,v)
+end
+hold off
