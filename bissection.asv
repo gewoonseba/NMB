@@ -42,7 +42,7 @@ d=0;
 uvalues=bvalues;
 lvalues=avalues;
 while n>0
-    while upper-lower>tol || uvalues-lvalues>1
+    while upper-lower>tol 
         wvalues=0;
         d = (upper + lower)/2;
         P1=0;
@@ -68,12 +68,19 @@ while n>0
             uvalues = wvalues;
         end
     end
-    z
     E= [E d];
-    n = n-1;
+    n = n-(uvalues-lvalues);
     upper=lower;
     uvalues=lvalues;
     lower=a;
     lvalues=avalues;
+end
+v=rand(size(A),1);
+v=v/norm(v);
+for i=1:7
+    w=(A-E(i)*eye(size(A)))\v;
+    w=w/norm(w);
+    S=[S w];
+end
 end
 
