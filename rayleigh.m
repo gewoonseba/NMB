@@ -1,4 +1,4 @@
-function [lambda,v] = rayleigh(A,v,maxit)
+function [lambda,z] = rayleigh(A,v,maxit)
 
 % function [lambda,v] = rayleigh(A,v,maxit)
 %
@@ -27,7 +27,7 @@ if length(v)~=n
     disp('v moet evenveel rijen als A hebben')
     return
 end
-
+z=[];
 v = v / norm(v);
 lambda = v'*A*v;
 warning off all % deze regel wegdoen als je de waarschuwingen van Matlab wilt zien
@@ -35,6 +35,7 @@ for it = 1:maxit
     w = (A-lambda*eye(n))\v;
     v = w/norm(w);
     lambda = v'*A*v;
+    z=[z lambda];
 end
 warning on all
     

@@ -1,6 +1,4 @@
 function [e,res]=qr_shiftrayleigh(A)
- 
-% function [e,res]=qr_shiftrayleigh(A)
 %
 % berekent met de QR-methode met Rayleigh quotient shift een eigenwaarde van de matrix A
 %
@@ -35,3 +33,4 @@ end
 res = [res abs(A(n,n-1))];
 disp(sprintf('residu = %.1e', abs(A(n,n-1))));
 e = A(n,n);
+

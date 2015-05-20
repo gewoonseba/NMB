@@ -23,21 +23,20 @@ if n<2
   disp('A moet minstens dimensie 2 hebben')
   return
 end
-
 A = hess(A);
 res = [];
-
-while abs(A(n-6,n-7))>1.e-13
-   res = [res abs(A(n,n-1))];
-   [q,r]=qr(A-A(n,n)*eye(n));
-   A = r*q + A(n,n)*eye(n);
+for i=0:6
+    while abs(A(n - i,n- (i + 1)))>1.e-12
+    res = [res abs(A(n,n-1))];
+    [q,r]=qr(A-A(n-i,n - i)*eye(n));
+    A = r*q + A(n - i,n - i)*eye(n);
+    end
 end
 res = [res abs(A(n,n-1))];
 disp(sprintf('residu = %.1e', abs(A(n,n-1))));
 e=[];
-v=rand(size(A),1);
+v=rand(size(A,1),1);
 v=v/norm(v);
-v
 S=[];
 for i=0:6
     e = [e A(n-i,n-i)];
