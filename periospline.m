@@ -1,9 +1,9 @@
 function [y] = periospline(x,f,t)
+
 D=zeros(size(x,1)-1,1);
 D2 = zeros(size(x,1)-2,1);
 B=zeros(size(x,1)-1,1);
 XEND= x(end)-x(end-1);
-XEND
 D(1) = 2*(XEND+ x(2)-x(1));
 D2(1) = x(2) - x(1);
 B(1) = (f(2)-f(1))/(x(2) - x(1)) - (f(end)-f(end-1))/XEND;
