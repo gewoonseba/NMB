@@ -17,7 +17,7 @@ end
 XEND= DELTA(end)-DELTA(end-1);
 D(1) = 2*(XEND+ DELTA(2)-DELTA(1));
 D2(1) = DELTA(2) - DELTA(1);
-B(1) = (f(2)-f(1))/(DELTA(2) - DELTA(1)) - (f(end)-f(end-1))/XEND;
+B(1) = 6*((f(2)-f(1))/(DELTA(2) - DELTA(1)) - (f(end)-f(end-1))/XEND);
 
 for i = 1:(size(D,1)-1)
     delta1 = DELTA(i+1)-DELTA(i);
@@ -54,7 +54,7 @@ D2 = zeros(size(x1,1)-2,1);
 B=zeros(size(x1,1)-1,1);
 D(1) = 2*(XEND+ DELTA(2)-DELTA(1));
 D2(1) = DELTA(2) - DELTA(1);
-B(1) = (f(2)-f(1))/(DELTA(2) - DELTA(1)) - (f(end)-f(end-1))/XEND;
+B(1) = 6*((f(2)-f(1))/(DELTA(2) - DELTA(1)) - (f(end)-f(end-1))/XEND);
 
 for i = 1:(size(D,1)-1)
     delta1 = DELTA(i+1)-DELTA(i);
@@ -72,7 +72,7 @@ Sy = full(gallery('tridiag',D2,D,D2));
 
 Sy(size(Sy,2),1)=XEND;
 Sy(1,size(Sy,2))=XEND;
-Sy
+
 sy= Sy\B;
 sy = [sy;sy(1)];
 cy1 = zeros(size(sy,1)-1,1);
