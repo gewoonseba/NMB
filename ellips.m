@@ -20,7 +20,7 @@ e = Z(4);
 f = Z(5);
 a = 1-c;
 hold on
-fh = @(xi,yi) a*xi^2 + 2*b*xi*yi + c*yi^2 + d*xi + e*yi +f;
+fh = @(xi,yi) a*xi.^2 + 2*b*xi.*yi + c*yi.^2 + d*xi + e*yi +f;
 
 w =ezplot(fh);
 set(w,'Color','r');

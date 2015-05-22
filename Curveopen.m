@@ -71,6 +71,6 @@ for i = 2:size(x1,1)
         q = linspace(DELTA(i-1),DELTA(i),40);
         v=(((q-DELTA(i-1)).^3)/(6*delta1))*s(i) - (((q-DELTA(i)).^3)/(6*delta1))*s(i-1) + c1(i-1)*(q-DELTA(i-1))+c2(i-1)*(DELTA(i)-q);
         h =(((q-DELTA(i-1)).^3)/(6*delta1))*sy(i) - (((q-DELTA(i)).^3)/(6*delta1))*sy(i-1) + cy1(i-1)*(q-DELTA(i-1))+cy2(i-1)*(DELTA(i)-q);
-        plot(v,h)
+        plot(v,h,'b')
 end
 hold off

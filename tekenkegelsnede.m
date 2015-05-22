@@ -13,4 +13,7 @@ C = transpose(T)*A*T + transpose(B)*T + f;
 if C > 0
     err =1;
 end
+fh = @(xi,yi) a*xi^2 + 2*b*xi*yi + c*yi^2 + d*xi + e*yi +f;
+w =ezplot(fh);
+set(w,'Color','r');
 end

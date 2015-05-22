@@ -14,14 +14,14 @@ end
 [Q,R] = qr(A,0);
 
 Z = R\(transpose(Q)*B);
-b = 0;
-c = 1;
-d = Z(1);
-e = Z(2);
-f = Z(3);
-a = 1;
+b = 0
+c = 1
+d = Z(1)
+e = Z(2)
+f = Z(3)
+a = 1
 hold on
-fh = @(xi,yi) a*xi^2 + 2*b*xi*yi + c*yi^2 + d*xi + e*yi +f;
+fh = @(xi,yi) a*xi.^2 + 2*b*xi.*yi + c*yi.^2 + d*xi + e*yi +f;
 ezplot(fh)
 plot(transpose(x),transpose(y),'o')
 hold off
